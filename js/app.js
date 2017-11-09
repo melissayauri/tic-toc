@@ -3,8 +3,8 @@
 /* var arrayTictoc = new array(9);*/
 /* variable para cada recuadro del tablero*/
 var square = document.getElementsByClassName('square');
-
-
+var turnPlayer;
+var turn = 1;
 /* funciones*/
 /* funcion para validar si hay una combinacion que gano*/
 function winningPlayer() {
@@ -15,8 +15,13 @@ function winningPlayer() {
 function ticToc(evento) {
   /* alert('primer cuadro');*/
   /* se enfoca en el elemento id del evento click*/
+  var celda = evento.target;
   var id = evento.target.id;
   var squareSelection = id[1] - 1;
+  turnPlayer = turn % 2;
+  if (turnPlayer !== 0) {
+    celda.innerHTML = 'x';
+  }
   /* alert(squareSelection);*/
 }
 
